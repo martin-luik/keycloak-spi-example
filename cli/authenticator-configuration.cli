@@ -1,0 +1,4 @@
+embed-server --server-config=standalone-ha.xml --std-out=echo
+/subsystem=keycloak-server/spi=authenticator/:add
+/subsystem=keycloak-server/spi=authenticator/provider=custom-login-form/:add(properties={runtimeEnvironment => "${env.ENV}"},enabled=true)
+stop-embedded-server
